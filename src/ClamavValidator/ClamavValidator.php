@@ -53,6 +53,7 @@ class ClamavValidator extends Validator
     public function validateClamav($attribute, $value, $parameters)
     {
         $file = $this->getFilePath($value);
+        chmod($file, 0644);
         $clamavSocket = $this->getClamavSocket();
 
         // Create a new socket instance
